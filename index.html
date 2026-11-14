@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lani Akea</title>
+<meta name="description" content="Lani Akea — venture fund of funds.">
+<meta name="theme-color" content="#020308">
+<link rel="preload" as="image" href="galaxy.jpg">
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    background: #020308;
+    overflow: hidden;
+  }
+
+  /* Hubble photo of the Pinwheel Galaxy (M101), slowly rotating.
+     Sized so the faded circle always covers the whole viewport. */
+  .galaxy {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 150vmax;
+    height: 150vmax;
+    margin: -75vmax 0 0 -75vmax;
+    background: url("galaxy.jpg") center / cover no-repeat;
+    -webkit-mask-image: radial-gradient(closest-side, #000 62%, transparent 100%);
+    mask-image: radial-gradient(closest-side, #000 62%, transparent 100%);
+    animation: spin 600s linear infinite; /* one turn every 10 minutes */
+    will-change: transform;
+  }
+  @keyframes spin {
+    to { transform: rotate(-360deg); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .galaxy { animation: none; }
+  }
+
+  main {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 0 1.5rem;
+    box-sizing: border-box;
+    text-align: center;
+    color: #fff;
+    font-family: "Avenir Next", "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+    /* dark pool behind the text so it stays readable over the bright core */
+    background: radial-gradient(ellipse 65% 50% at center, rgba(2, 3, 8, 0.62), rgba(2, 3, 8, 0.25) 60%, transparent 80%);
+  }
+  h1 {
+    margin: 0;
+    font-size: clamp(2rem, 8vw, 5rem);
+    font-weight: 200;
+    letter-spacing: 0.32em;
+    margin-right: -0.32em; /* cancel trailing letter-spacing so it centers optically */
+    text-transform: uppercase;
+    text-shadow: 0 0 30px rgba(2, 3, 8, 0.95), 0 0 60px rgba(2, 3, 8, 0.6);
+  }
+  p {
+    margin: -0.5rem 0 0;
+    max-width: 32em;
+    font-size: clamp(0.95rem, 2.4vw, 1.25rem);
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.88);
+    text-shadow: 0 0 20px rgba(2, 3, 8, 0.95);
+  }
+  main a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-indent: 0.3em;
+    text-transform: uppercase;
+    padding: 0.7em 1.5em;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 999px;
+    background: rgba(2, 3, 8, 0.4);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
+  }
+  main a:hover, main a:focus-visible {
+    background: #fff;
+    border-color: #fff;
+    color: #020308;
+    outline: none;
+  }
+  footer {
+    position: fixed;
+    right: 1rem;
+    bottom: 0.75rem;
+    font: 0.65rem/1 "Avenir Next", "Helvetica Neue", system-ui, sans-serif;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.4);
+  }
+</style>
+</head>
+<body>
+<div class="galaxy" aria-hidden="true"></div>
+<main>
+  <h1>Lani Akea</h1>
+  <p>Backing the investors who back what&rsquo;s next.</p>
+  <a href="https://www.linkedin.com/in/youngrok-kim/" target="_blank" rel="noopener me">Contact</a>
+</main>
+<footer>Image: NASA, ESA &amp; Hubble (M101)</footer>
+</body>
+</html>
